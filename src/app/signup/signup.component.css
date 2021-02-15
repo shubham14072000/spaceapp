@@ -1,0 +1,99 @@
+.container{
+    text-align: center;
+}
+
+
+.main-form {
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.main-form-div {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+}
+
+.main-form-div input{
+    font-size: 20px;
+    padding-top: 1%;
+    font-weight: 100;
+    width: 700px;
+    margin-left: 200px;
+    padding: 5px;
+
+}
+.name{
+    margin-left: -540px;
+}
+.mobno{
+    margin-left: -500px;
+}
+.dob{
+    margin-left: -530px;
+}
+.email{
+    margin-left: -590px;
+}
+.password{
+    margin-left: -550px;
+}
+.confirmpassword{
+    margin-left: -480px;
+}
+.type{
+    margin-left: -600px;
+}
+
+.main-form-div label {
+    font-weight: 700;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    margin-left: -490px;
+}
+.error-message-no{
+    margin-left: -460px;
+    color: red;
+    font-size: 15px;
+}
+.error-message-dob{
+    margin-left: -480px;
+    color: red;
+    font-size: 15px;
+}
+.error-message-email{
+    margin-left: -520px;
+    color: red;
+    font-size: 15px;
+}
+.error-message-password{
+    margin-left: -500px;
+    color: red;
+    font-size: 15px;
+}
+.error-message-type{
+    margin-left: -535px;
+    color: red;
+    font-size: 15px;
+}
+.main-form-div button{
+    align-self: center;
+    width: 400px;
+    height: 40px;
+    background-color:dodgerblue;
+    font-size: 28px;
+    border-radius: 100px;
+    margin-top: 20px;
+    border: none;
+    color: white;
+    padding: 0px;
+    outline: none;
+    margin-left: 80px;
+}

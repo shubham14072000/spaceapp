@@ -1,0 +1,53 @@
+
+<div class="container">
+<h1 class="head">Login</h1>
+
+<div class="social-logo">
+    <button class="fb-social"> <img src="../../assets/fb-icon.png" alt=""> </button>
+    <span><button class="G-social"><img src="../../assets/google-icon.png" alt=""></button></span>
+</div>
+
+ <h4 class="or">OR</h4> 
+
+<form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+
+<div class="form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput  formControlName="username" placeholder="Email Address"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"  required>
+
+              <mat-error *ngIf="loginform.get('username').hasError('required')"
+                >Email is required</mat-error >
+              <mat-error *ngIf="loginform.get('username').hasError('username')"
+                >Please enter a valid email address
+              </mat-error>
+
+            </mat-form-field>
+</div>
+
+<div class="form-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"  placeholder="Password" formControlName="password"   >
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+     
+    <mat-error *ngIf="loginform.get('password').hasError('required')" >Password is required</mat-error >
+   
+    </mat-form-field>
+</div>
+
+<div class="forgot-password">
+    Forgot Password?
+</div>
+
+<button class="btn" mat-raised-button color="primary">Login</button>
+
+<div>
+    Don't have an account?  <a href="" routerLink="/signup">Sign Up</a>
+</div>
+
+
+</form>
+</div> 

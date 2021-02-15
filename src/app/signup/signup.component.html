@@ -1,0 +1,104 @@
+<div class="container">
+<h1 class="head">Registration</h1>
+
+    <form [formGroup]="signupform" (ngSubmit)="onSubmit()" class="main-form">
+      <div class="main-form-firstname main-form-div">
+          <label class="name" for="firstname">First Name</label>
+          <input formControlName="firstName" placeholder="firstname" required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' />
+
+          <ng-container *ngFor="let error of error_messages.firstname">
+              <div class="error-message" *ngIf="
+                    signupform.get('firstName').hasError(error.type) &&
+                    (signupform.get('firstName').dirty ||signupform.get('firstName').touched)">
+                  {{ error.message }}
+              </div>
+          </ng-container>
+      </div>
+      <div class="main-form-lastname main-form-div">
+          <label class="name" for="lastname">Last Name</label>
+          <input formControlName="lastName" placeholder="lastname" required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' />
+          <ng-container *ngFor="let error of error_messages.lastname">
+              <div class="error-message" *ngIf="signupform.get('lastName').hasError(error.type) &&(signupform.get('lastName').dirty ||signupform.get('lastName').touched)">
+                  {{ error.message }}
+              </div>
+          </ng-container>
+      </div>
+
+      <div class="main-form-div">
+        <label class="mobno" for="contact">Mobile Number</label>
+        <input formControlName="phone" placeholder="mobilenumber" required pattern />
+        <ng-container *ngFor="let error of error_messages.contact">
+            <div class="error-message-no" *ngIf="signupform.get('phone').hasError(error.type) &&(signupform.get('phone').dirty ||signupform.get('phone').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container> 
+    </div>
+
+    <div class="main-form-div">
+      <label for="dob" class="dob">Date of birth</label>
+      <input type="date" formControlName="dob" />
+      <ng-container *ngFor="let error of error_messages.dob">
+          <div class="error-message-dob" *ngIf="signupform.get('dob').hasError(error.type) &&(signupform.get('dob').dirty ||signupform.get('dob').touched)">
+              {{ error.message }}
+          </div>
+      </ng-container> 
+  </div>
+
+ 
+      
+      <div class="main-form-div">
+          <label class="email" for="email">Email</label>
+          <input formControlName="email" placeholder="email" email="true" required  type="email"   pattern="^[a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,15})$" />
+          <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message-email" *ngIf="signupform.get('email').hasError(error.type) &&(signupform.get('email').dirty ||signupform.get('email').touched)">
+                  {{ error.message }}
+              </div>
+          </ng-container>
+      </div>
+     
+      <div class="main-form-div">
+          <label class="password" for="password">Password</label>
+          <input for="password" id="password" placeholder="password" [type]="hide ? 'password' : 'text'" formControlName="password" [pattern]="passwordPattern" required />
+          <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message-password" *ngIf="signupform.get('password').hasError(error.type) &&(signupform.get('password').dirty ||signupform.get('password').touched)">
+                  {{ error.message }}
+              </div>
+          </ng-container>
+
+      </div>
+      <div class="main-form-div">
+          <label class="confirmpassword" for="confirmpassword">Confirm Password</label>
+          <input id="confirmpassword" placeholder="confirmpassword" [type]="hide ? 'password' : 'text'" for="confirmpassword" formControlName="confirmPassword" [pattern]="passwordPattern" required />
+          <ng-container *ngFor="let error of error_messages.confirmpassword">
+              <div class="error-message-password" *ngIf="signupform.get('confirmPassword').hasError(error.type) &&(signupform.get('confirmPassword').dirty ||signupform.get('confirmPassword').touched)">
+                  {{ error.message }}
+              </div>
+          </ng-container>
+
+      </div>
+      <!-- <div class="main-form-div error-message" *ngIf="signupform.controls.confirmpassword.errors?.MatchPassword &&(signupform.get('confirmpassword').dirty ||signupform.get('confirmpassword').touched)">
+          <p>Password do not match</p>
+      </div> -->
+      <!-- <div  >
+        <label for="type">Type</label>
+        <input type="text" formControlName="type">
+      </div> -->
+
+      <div class="main-form-type main-form-div">
+        <label class="type" for="type">Type</label>
+        <input formControlName="type" placeholder="type" required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' />
+        <ng-container *ngFor="let error of error_messages.type">
+            <div class="error-message-type" *ngIf="signupform.get('type').hasError(error.type) &&(signupform.get('type').dirty ||signupform.get('type').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
+    </div>
+
+      <div class="main-form-div">
+      <button class="btn">
+           Create Account
+      </button>
+      </div>  
+    </form>    
+
+</div>
